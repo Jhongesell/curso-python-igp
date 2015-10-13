@@ -8,15 +8,15 @@ def csv2list(file):
 # genera cadena para imprimir titulo de la pelicula
 def pelicula2string(texto):
     lado = '*' * (len(texto)+4)
-    return '%s\n* %s *\n%s\n' % (lado,texto,lado)
+    return '%s\n* %s *\n%s' % (lado,texto,lado)
 
 # genera cadena para imprimir cine
 def cine2string(texto):
-    return '   %s:\n' % texto.upper()
+    return '\n   %s:\n' % texto.upper()
 
 # genera cadena para imprimir sala
 def sala2string(sala, horarios):
-    return '      Sala %s:  %s' % (sala, '  '.join(horarios))
+    return '      - Sala %s:  %s' % (sala, '  '.join(horarios))
 
 
 cines = dict(csv2list('cines.csv'))
@@ -50,9 +50,9 @@ for cid, pid, sala, horario in funciones:
 
 # Imprimiendo la data
 for pid, pelicula in cartelera.items():
-    print pelicula2string('(%s) %s' % (pid, pelicula['titulo']))
+    print pelicula2string(pelicula['titulo'])
     for cid, cine in pelicula['cines'].items():
-        print cine2string('(%s) %s' % (cid, cine['nombre']))
+        print cine2string(cine['nombre'])
         for sala,horarios in cine['salas'].items():
             print sala2string(sala, horarios)
     print '\n\n'
