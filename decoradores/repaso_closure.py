@@ -12,4 +12,4 @@ if __name__ == '__main__':
     imprimir_a()
     a = 20
     imprimir_a()
-    #   print "a: %d" % a
+    print "a: %d" % a
