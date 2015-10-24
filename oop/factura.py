@@ -67,6 +67,19 @@ class Factura(Base):
         'guia_remision': None
     }
 
+class DetalleFactura(Base):
+
+    ATRIBUTOS = {
+        'factura': Base.ATRIBUTO_OBLIGATORIO,
+        'cantidad': Base.ATRIBUTO_OPCIONAL,
+        'descripcion': Base.ATRIBUTO_OBLIGATORIO,
+        'precio_unitario': Base.ATRIBUTO_OBLIGATORIO
+    }
+
+    DEFAULTS = {
+        'cantidad': 1
+    }
+
 
 if __name__ == '__main__':
     pass
