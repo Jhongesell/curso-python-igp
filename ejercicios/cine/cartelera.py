@@ -46,8 +46,6 @@ for cid, pid, sala, horario in funciones:
         cartelera[pid]['cines'][cid]['salas'][sala] = []
     cartelera[pid]['cines'][cid]['salas'][sala].append(horario)
 
-
-
 # Imprimiendo la data
 for pid, pelicula in cartelera.items():
     print pelicula2string(pelicula['titulo'])
