@@ -12,3 +12,14 @@ def corchetes(s):
 
 print parentesis('1')
 print corchetes('2')
+
+
+##################################
+# Decorando mediante composición #
+##################################
+def corchetesYparentesis1(s):
+    return parentesis(corchetes(s))
+
+print corchetesYparentesis1('3')
+
+
