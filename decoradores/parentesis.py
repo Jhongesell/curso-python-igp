@@ -26,14 +26,17 @@ print corchetesYparentesis1('3')
 ##########################
 # Decorando con arroba @ #
 ##########################
-def decoparentesis(f):
+def decoparentesis(funcCorchetes):
     def aux(s):
-        return parentesis(f(s))
+        print '--> b'
+        salida = funcCorchetes(s)
+        return parentesis(salida)
     return aux
 
 
 @decoparentesis
 def corchetesYparentesis2(s):
+    print '--> a'
     return corchetes(s)
 
 print corchetesYparentesis2('4')
