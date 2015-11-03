@@ -33,9 +33,13 @@ def decoparentesis(funcCorchetes):
     return aux
 
 
+
 @decoparentesis
 def corchetesYparentesis2(s):
     print '--> a'
     return corchetes(s)
+
+#corchetesYparentesis2 = decoparentesis(corchetesYparentesis2)
+
 
 print corchetesYparentesis2('4')
