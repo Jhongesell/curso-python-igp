@@ -11,6 +11,8 @@
 ## 01. HISTORIA                                                       ##
 ########################################################################
 
+==> ANTONIO <==
+
 # Algunos puntos relevantes sobre la historia de Python:
 #
 # 01. Creado por Guido von Rossum
@@ -19,9 +21,128 @@
 ## 00. SINTAXIS BÁSICA                                                ##
 ########################################################################
 
+==> ANTONIO <==
+
 ########################################################################
 ## 00. TIPOS DE DATOS BÁSICOS                                         ##
 ########################################################################
+
+==> ERNESTO <==
+
+########################################################################
+## 00. TIPOS DE DATOS BÁSICOS                                         ##
+########################################################################
+
+==> ERNESTO <==
+
+########################################################################
+## 00. CONDICIONALES                                                  ##
+########################################################################
+
+==> ERNESTO <==
+
+########################################################################
+## 00. BUCLES                                                         ##
+########################################################################
+
+==> ERNESTO <==
+
+* while
+* for
+
+########################################################################
+## 00. LISTAS                                                         ##
+########################################################################
+
+==> ERNESTO <==
+
+########################################################################
+## 00. DICCIONARIOS                                                   ##
+########################################################################
+
+==> ERNESTO <==
+
+########################################################################
+## 00. CONJUNTOS                                                   ##
+########################################################################
+
+==> ERNESTO <==
+
+########################################################################
+## 00. CLOSURES                                                       ##
+########################################################################
+
+==> ANTONIO <==
+
+########################################################################
+## 00. LAMBDAS                                                        ##
+########################################################################
+
+==> ERNESTO <==
+
+* Lambdas que sin argumentos
+* Lambdas con argumentos
+* Indicar que los lambdas solo aceptan expresiones simples
+* Función espejo como lambda
+
+def suma(a, b):
+    return a + b
+
+suma = lambda a, b: a + b
+
+assert (lambda a, b: a + b)(1,1) == 2
+
+########################################################################
+## 00. MAP, REDUCE y FILTER                                           ##
+########################################################################
+
+==> ERNESTO <==
+
+########################################################################
+## 00. LISTAS POR COMPRENSIÓN                                         ##
+########################################################################
+
+==> ANTONIO <==
+
+########################################################################
+## 00. CLASES Y OBJETOS                                               ##
+########################################################################
+
+==> ANTONIO <==
+
+########################################################################
+## 00. PROTOCOLOS                                                     ##
+########################################################################
+
+==> ANTONIO <==
+
+########################################################################
+## 00. PRINCIPALES MÉTODOS MÁGICOS                                    ##
+########################################################################
+
+==> ERNESTO <==
+
+########################################################################
+## 00. CALLABLES                                                      ##
+########################################################################
+
+# En Python, cualquier objeto que implementa el método mágico __call__
+# puede ser invocado como si se tratara de una función. Lo que en
+# realidad sucede es que los argumentos son pasados a su método mágico
+# __call__.
+
+class Sumadora(object):
+
+    def __init__(self, sumando=1):
+        self.sumando = sumando
+
+    def __call__(self, numero):
+        return numero + self.sumando
+
+
+sumador_de_cincos = Sumadora(sumando=5)
+assert sumador_de_cincos(0) == 5
+assert sumador_de_cincos(100) == 105
 
 ########################################################################
 ## 00. DECORADORES                                                    ##
@@ -220,3 +341,54 @@ def suma(a, b):
 # Es semánticamente equivalente a escribir:
 
 suma = espejo(operandos_pares(valor_por_omision=0)(suma))
+
+########################################################################
+## 00. ITERADORES                                                     ##
+########################################################################
+
+# Los iteradores con objetos que devuelven elementos de una secuancia
+# uno a la vez cuando se invoca la función next() y finalmente lanzan
+# la excepción StopIteration cuando ya no quedan más elementos por
+# entregar.
+
+class IteradorVocales(object):
+
+    VOCALES = "aeiou"
+
+    def __init__(self):
+        self.apuntador = 0
+
+    def next(self):
+        if self.apuntador < len(self.VOCALES):
+            resultado = self.VOCALES[self.apuntador]
+            self.apuntador += 1
+            return resultado
+        else:
+            raise StopIteration
+
+obj = IteradorVocales()
+assert obj.next() == 'a'
+assert obj.next() == 'e'
+assert obj.next() == 'i'
+assert obj.next() == 'o'
+assert obj.next() == 'u'
+
+try:
+    obj.next()
+except StopIteration:
+    print u"No hay más elementos por iterar"
+
+########################################################################
+## 00. ITERABLES                                                      ##
+########################################################################
+
+# Los iterables son objetos que devuelve un iterador
+
+########################################################################
+## 00. GENERADORES                                                    ##
+########################################################################
+
+########################################################################
+## 00. EXPRESIONES DE GENERADOR                                       ##
+########################################################################
+
