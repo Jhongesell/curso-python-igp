@@ -58,13 +58,46 @@ assert "Mayor de edad" if edad >= 18 else "Menor de edad"
 ## 00. TIPOS DE DATOS BÁSICOS                                         ##
 ########################################################################
 
-# ==> ERNESTO <==
+# type nos ayuda indicandonos el tipo de dato
+print type('x')
+# Debe mostrar: <type 'str'>
 
-########################################################################
-## 00. TIPOS DE DATOS BÁSICOS                                         ##
-########################################################################
+cadena = 'abc123'
+assert isinstance(cadena, str) == True
+assert type(cadena).__name__ == 'str'
 
-# ==> ERNESTO <==
+entero = 42
+assert isinstance(entero, int) == True
+
+largo = 2147483647 + 1
+assert isinstance(largo, long) == True
+
+flotante = 18.9311
+assert isinstance(flotante, float) == True
+
+lista = [1,1,2,3,5,8,13,21]
+assert isinstance(lista, list) == True
+
+tupla = ('L','M','X','J','V','S','D')
+assert isinstance(tupla, tuple) == True
+
+diccionario = {'nombre':'Guido', 'apellido':'van Rossum'}
+assert isinstance(diccionario, dict) == True
+
+conjunto = {'nuevo','observado','pendiente','en-progreso','hecho','cerrado'}
+assert isinstance(conjunto, set) == True
+
+objeto = object()
+assert isinstance(objeto, object) == True
+
+suma = lambda a,b: a + b
+assert type(suma).__name__ == 'function'
+
+
+def resta(a, b):
+    return a - b
+assert type(resta).__name__ == 'function'
+
 
 ########################################################################
 ## 00. CONDICIONALES                                                  ##
