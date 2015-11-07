@@ -163,6 +163,136 @@ for caracter in 'Una cadena':
 
 #exit(1)
 ########################################################################
+## 00. VARIABLES VS CONSTANTES                                        ##
+########################################################################
+
+# ==> ERNESTO <==
+
+########################################################################
+## 00. ASIGNACIÓN VS COMPARACIÓN                                      ##
+########################################################################
+
+########################################################################
+## 00. CONTADORES, ACUMULADORES Y BANDERAS                            ##
+########################################################################
+
+# Los contadores son variables que registran un cambio constante,
+# es decir, cada vez que cambian de valor, el cambio es el mismo
+# quantitativamente.
+
+contador = 0
+
+# Hacemos una venta
+contador += 1
+
+# Vendemos otro item
+contador += 1
+
+# Logramos hacer una tercera venta
+contador += 1
+
+# El cambio no tiene porque ser aritmético, ni de una unidad en
+# una unidad, ni en en sentido positivo:
+
+contador = 10000
+contador -= 1000
+contador -= 1000
+contador -= 1000
+contador -= 1000
+contador -= 1000
+
+assert contador == 5000
+
+# Elevando 2 a base 5
+
+valor = 2 ** 0 # 1
+valor *= 2
+valor *= 2
+valor *= 2
+valor *= 2
+valor *= 2
+
+assert valor == 32
+
+# En cambio, un acumulador es una variable que recibe cambios que
+# van variando cuantitativamente:
+
+# Monto vendido
+ventas = 0.0
+
+# Vendemos un producto de S/. 500
+ventas += 500.0
+
+# Vendemos un producto de S/. 1200
+
+ventas += 1200.0
+
+# Vendemos un producto de S/. 800
+
+ventas += 800.0
+
+assert ventas == 2500
+
+# Otro ejemplo clásico de acumulador es sumar las notas de un
+# curso antes de sacar el promedio
+
+notas = 0.0
+num_notas = 0
+
+# Primera nota
+notas += 14.0
+num_notas += 1
+
+# Segunda nota
+notas += 8.0
+num_notas += 1
+
+# Tercera nota
+notas += 17.0
+num_notas += 1
+
+assert notas == 39.0
+assert num_notas == 3
+
+promedio = notas / float(num_notas)
+assert promedio == 13.0
+
+# Finalmente, una bandera es una variable que toma estados según
+# estos describan el estado de otra variable del dominio del
+# problema que está siendo monitoreada.
+
+# Ejemplos:
+
+TURNO_MANIANA = 1
+TURNO_TARDE = 2
+TURNO_NOCHE = 3
+TURNO_MADRUGADA = 4
+
+# Son las 6 AM
+turno_actual = TURNO_MANIANA
+
+# A las 8am se nos ocurre consultar
+
+assert turno_actual == TURNO_MANIANA
+
+# Son las 12 PM y hay cambio de turno
+turno_actual = TURNO_TARDE
+
+# A las 3pm se nos ocurre consultar
+
+assert turno_actual == TURNO_TARDE
+
+# Son las 6 PM y hay cambio de turno
+turno_actual = TURNO_NOCHE
+
+# Son las 00 AM y hay cambio de turno
+turno_actual = TURNO_MADRUGADA
+
+# A las 5am consultamos el turno actual
+
+assert turno_actual == TURNO_MADRUGADA
+
+########################################################################
 ## 00. CONDICIONALES                                                  ##
 ########################################################################
 
@@ -234,6 +364,12 @@ assert (lambda a, b: a + b)(1,1) == 2
 ########################################################################
 ## 00. CLASES Y OBJETOS                                               ##
 ########################################################################
+
+########################################################################
+## 00. PERSONALIZANDO EXCEPCIONES                                     ##
+########################################################################
+
+
 
 # ==> ANTONIO <==
 
@@ -595,3 +731,5 @@ for alumno in aula:
 ## 00. EXPRESIONES DE GENERADOR                                       ##
 ########################################################################
 
+# Las expresiones de generador son conceptualmente idénticas a las
+# listas por comprensión
