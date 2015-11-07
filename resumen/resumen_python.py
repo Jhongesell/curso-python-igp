@@ -113,7 +113,55 @@ assert 19 % 4 == 3 # residuo
 assert abs(-5) == 5
 assert 3**4 == 81 # potencia
 
+########################################################################
+## 00.00 CADENAS.                                                     ##
+########################################################################
 
+cadena = 'delimitada por comillas simples'
+cadena = "delimitada por comillas dobles"
+cadena = """o incluso
+pueden ser
+multilinea"""
+
+# interpolación
+cadena = 'resultado: --> %s <--' % 4
+assert cadena == 'resultado: --> 4 <--'
+
+# interpolación de multiples variables
+cadena = 'El resultado de %s %s %s %s es: %s'
+cadena_suma = cadena % ('sumar', 5, 'mas', 3, (5+3))
+cadena_multip = cadena % ('multiplicar', 5, 'por', 3, (5*3))
+assert cadena_suma == 'El resultado de sumar 5 mas 3 es: 8'
+assert cadena_multip == 'El resultado de multiplicar 5 por 3 es: 15'
+
+# algunas operaciones:
+a = 'Python Language'
+assert a.lower() == 'python language'
+assert a.upper() == 'PYTHON LANGUAGE'
+assert a.lower().capitalize()  == 'Python language'
+assert a.strip('Pyth') == 'on Language'
+assert a.strip('age') == 'Python Langu'
+assert a.lstrip('Py') == 'thon Language'
+assert a.split(' ') == ['Python','Language']
+assert 'X'.join(a.split(' ')) == 'PythonXLanguage'
+assert '-'.join(['lunes' , 'martes', 'viernes']) == 'lunes-martes-viernes'
+assert 'uno' + 'dos' == 'unodos'
+assert str(10) == '10'
+assert 'uno' + 'dos' + str(3) == 'unodos3'
+assert a.startswith('Pyth')
+assert not a.startswith('PHP')
+assert a.endswith('age')
+otrolang = a.replace('Language', 'Lenguaje').replace('Python','Ruby')
+assert otrolang == 'Ruby Lenguaje'
+
+# iterando la cadena
+for caracter in 'Una cadena':
+    assert len(caracter) == 1
+    assert isinstance(caracter, str) == True
+    assert type(caracter).__name__ == 'str'
+
+
+#exit(1)
 ########################################################################
 ## 00. CONDICIONALES                                                  ##
 ########################################################################
