@@ -199,6 +199,85 @@ assert clase == 'Clase de 3h'
 ########################################################################
 ## 00. BUCLES                                                         ##
 ########################################################################
+# si ya tenemos un iterable que recorrer:
+lista = ['a','b','c']
+for i in lista:
+    assert i in lista
+
+# una cadena tambien actúa como iterable:
+for i in 'abc':
+    assert isinstance(i, str)
+    assert len(i) == 1
+    assert i in lista
+
+# si simplemente queremos correr un bloque 5 veces
+for i in range(5):
+    # i tomará los valores desde el 0 hasta el 4
+    assert isinstance(i, int)
+
+# si queremos recorrer una lista pero a la vez tener un cursor
+for k,v in enumerate(lista):
+    # k es el cursor, empieza en 0
+    # v es el valor de la lista
+    assert isinstance(k, int)
+    assert v in lista
+
+diccionario = {
+    'id': 12,
+    'titulo': 'Crear usuario para bob@igp.pe',
+    'estado': 'observado',
+    'creado': '2015-11-07',
+    'asignado': 'alice'
+}
+
+# Cuando se itera un diccionario, la variable pasada a k es el indice
+for k in diccionario:
+    # k es solo la llave
+    assert k in diccionario.keys()
+    # pero usando k podemos obtener el valor
+    assert diccionario[k] in diccionario.values()
+
+# Si requerimos tener en una segunda variable el valor:
+for (k,v) in diccionario.items():
+    assert k in diccionario.keys()
+    assert v in diccionario.values()
+
+# Si el diccionario fuese muy grande y no queremos ocupar en memoria el
+# espacio para reservar todo el diccionario completo, podemos usar iteritems()
+for (k,v) in diccionario.iteritems():
+    assert k in diccionario.keys()
+    assert v in diccionario.values()
+
+# Si queremos sólo tener el valor:
+for v in diccionario.values():
+    assert v in diccionario.values()
+
+
+# while evalue la expresión condicional (la que le sigue a la palabra while)
+# y si es que la condición es Verdadera, ejecuta el bloque y vuelve a evaluar
+i = 0
+while i<5:
+    # en este ejemplo este bloque se ejecutará 5 veces
+    assert isinstance(i, int)
+    i += 1
+
+
+i = 10
+while i<55:
+    # el valor inicial, final e incremento pueden ser distintos
+    # en este ejemplo el bloque se ejecutará 6 veces
+    # los valores de i serán: 10, 18, 26, 34, 42 y 50
+    assert isinstance(i, int)
+    i += 8
+
+# A veces es la condición a evaluar puede resultar muy complicada o imposible
+# al tratar de expresarla aritméticamente en esos casos podemos fijar True como
+# condición e internamente en el bloque hacer el chequeo de la condición que
+# debe terminar de iterar el bloque del while y romper la iteración presente
+# con el keyword break
+while True:
+    # Esta linea sólo correrá una vez
+    break
 
 
 ########################################################################
