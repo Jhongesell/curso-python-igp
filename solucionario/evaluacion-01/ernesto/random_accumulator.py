@@ -4,7 +4,6 @@
 from random import randint
 
 lista = []
-
 while sum(lista) <= 10000:
     lista_anterior = list(lista)
     lista.append(randint(1,100))
