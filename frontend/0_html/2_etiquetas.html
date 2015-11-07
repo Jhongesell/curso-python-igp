@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>
+			Estructura Básica HTML5</title>
+	</head>
+	<body>
+
+	<div>
+
+		<header>
+			<h1>Estructura Basica</h1>
+			texto
+		</header>
+
+		<h2>Parrafos</h2>
+
+		<p>Lorem ipsum dolor sit amet, <br />consectetur adipiscing
+			elit. Vestibulum vestibulum ullamcorper lorem et
+			placerat. Pellentesque eget lectus vulputate nunc
+			imperdiet posuere. Vestibulum vulputate ligula
+			dolor, vitae volutpat massa rutrum quis. In finibus
+			nec nibh a vulputate. Nunc nisi nibh, dignissim eu</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit. Vestibulum vestibulum ullamcorper lorem et
+			placerat. <span>Pellentesque stibulum</span> ligula
+			dolor,
+
+			<blockquote>
+			vitae volutpat massa rutrum quis. In finibus
+			nec nibh a vulputate. Nunc nisi nibh, dignissim eu
+			</blockquote>
+		</p>
+
+		<a href="http://google.com">Buscar</a> <!-- a: Anchor -->
+		<a href="1_estructura_basica.html">Sintaxis basica</a> <!-- a: Anchor -->
+
+		<h3>Tercer Parrafo</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit. Vestibulustibulum vulputate ligula
+			dolor, vitae volutpat m eget lectus vulputate nunc
+			imperdiet posuere. Vestibulum vulputate ligula
+			dolor, vitae volutpat  eget lectus vulputate nunc
+			imperdiet posuere. Vestibulum vulputate ligula
+			dolor, <strong>vitae</strong> voluis. In finibus
+			nec nibh a vulputate. Nunc nisi nibh, dignissim eu</p>
+
+		<h3>Encabezados</h3>
+		<h4>h4</h4>
+		<h5>h5</h5>
+		<h6>h6</h6>
+
+		<h3>Semantica de formato</h3>
+		strong: <strong>vitae volutpat m eget</strong><br />
+		em: <em>vitae volutpat m eget</em><br />
+		strike: <strike>vitae volutpat m eget</strike><br />
+		del: <del>vitae volutpat m eget</del><br />
+		mark: <mark>vitae volutpat m eget</mark><br />
+
+		<h3>Formato</h3>
+		small: <small>vitae volutpat m eget</small><br />
+		big: <big>vitae <big>m eget</big>tm eget</big><br />
+		s: <s>vitae volutpat m eget</s><br />
+		b: <b>vitae volutpat m eget</b><br />
+		i: <i>vitae volutpat m eget</i><br />
+		u: <u>vitae volutpat m eget</u><br />
+
+		<h3>Listas</h3>
+
+		<ul> <!-- unordered list -->
+			<li>primero</li> <!-- list items -->
+			<li>segundo</li> <!-- list items -->
+			<li>tercero</li> <!-- list items -->
+		</ul>
+
+		<ol>
+			<li>primero</li>
+			<li>seg</li>
+			<li>3ero</li>
+		</ol>
+
+		<ol type="a">
+			<li>primero</li>
+			<li>seg</li>
+			<li>3ero</li>
+				<ol type="1">
+					<li>primero</li>
+					<li>seg</li>
+					<li>3ero</li>
+				</ol>
+		</ol>
+
+		<dl> <!-- definitions list -->
+			<dt>Nombre</dt> <!-- definition title -->
+			<dd>Guido</dd> <!-- definition description -->
+			<dt>Apellido</dt>
+			<dd>van Rossum</dd>
+			<dt>Trabajo</dt>
+			<dd>Dropbox</dd>
+		</dl>
+
+
+		<h3>etiquetas semanticas</h3>
+		<abbr>Sr.</abbr>
+		<address>
+			Jr. por aca #1000
+			<tel>01-555555555</tel>
+			<span>san isidro</span>
+		</address>
+
+		<header>
+			un encabezado complejo
+		</header>
+
+		<h3>Tablas</h3>
+		<table border="1">
+			<tr>
+				<td id="laequis">x</td><td>x</td>
+			</tr>
+			<tr>
+				<td>x</td><td>x</td>
+			</tr>
+			<tr>
+				<td>x</td><td>x</td>
+			</tr>
+		</table>
+
+
+		<table border="1" id="latabladeaca">
+			<thead>
+				<tr>
+					<th>Score Mínimo</th>
+					<th>Calificación</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0,0</td><td>Insuficiente</td>
+				</tr>
+				<tr>
+					<td>0,0</td><td>Insuficiente</td>
+				</tr>
+				<tr>
+					<td>0,0</td><td>Insuficiente</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<h3>Formularios</h3>
+		<form action="." method="get">
+			<!-- En el lado del servidor, se accederan a los
+			 datos enviados desde el formulario, usando el
+			 valor del atributo name de cada campo-->
+			<!-- No confundir con id. id es un atributo que sirve
+			 para identificar de manera unica una etiqueta en
+			 todo el documento HTML -->
+			<label for="txtApellido">texto</label>:
+			<input type="text" id="txtApellido" name="apellido" value="python" /> <br />
+			<input type="text" placeholder="Ingresa tu nombre" /> <br />
+			<input type="text" value="hola" readonly /> <br />
+			<input type="text" value="hola" disabled /> <br />
+			maxlength 4<input type="text" maxlength="4" /> <br />
+
+			password:
+			<input type="password" /> <br />
+
+			password:
+			Negrita: <input type="checkbox" name="negrita" /> <br />
+			Cursiva: <input type="checkbox" name="cursiva" /> <br />
+			Subrayado: <input type="checkbox" checked name="subrayado" /> <br />
+
+			<label for="chbTitulo">
+				<input id="chbTitulo" type="checkbox" name="titulo" />
+				Titulo
+			</label>
+
+			radio:<br />
+			Dia de semana: <br />
+			<label for="radDDSLunes">
+				<input id="radDDSLunes" type="radio" value="lunes" name="dds" />
+				Lunes
+			</label><br />
+			<label for="radDDSMiercoles">
+				<input checked id="radDDSMiercoles" type="radio" value="miercoles" name="dds" />
+				Miercoles
+			</label><br />
+			<label for="radDDSViernes">
+				<input id="radDDSViernes" type="radio" value="viernes" name="dds" />
+				Viernes
+			</label><br />
+
+			Turno:<br />
+			<label for="radTurnoManana">
+				<input id="radTurnoManana" type="radio" value="manana" name="turno" />
+				Mañana
+			</label><br />
+			<label for="radTurnoTarde">
+				<input checked id="radTurnoTarde" type="radio" value="tarde" name="turno" />
+				Tarde
+			</label><br />
+
+			<input type="hidden" value="borrar" name="operacion" />
+
+			<input type="file" /><br />
+
+			<!-- HTML5 -->
+			<input id="phone" placeholder="888-888-8888" title="Text to convey pattern" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+
+			Date: <input type="date" required /> <br />
+			Week: <input type="week" required /> <br />
+			Month: <input type="month" required /> <br />
+			Datetime: <input type="datetime" required /> <br />
+			Color: <input type="color" required /> <br />
+			Range: <input type="range" required /> <br />
+			Email: <input type="email" required /> <br />
+			Tel: <input type="tel" required /> <br />
+			Url: <input type="url" placeholder="http://tupagina.com" required /> <br />
+
+			<input type="submit" value="Enviar">
+
+		</form>
+
+
+
+	</div>
+
+	<hr />
+
+	<footer>
+		python -m SimpleHTTPServer
+	</footer>
+
+	</body>
+
+</html>
