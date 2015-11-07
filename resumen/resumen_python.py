@@ -63,32 +63,32 @@ print type('x')
 # Debe mostrar: <type 'str'>
 
 cadena = 'abc123'
-assert isinstance(cadena, str) == True
+assert isinstance(cadena, str)
 assert type(cadena).__name__ == 'str'
 
 entero = 42
-assert isinstance(entero, int) == True
+assert isinstance(entero, int)
 
 largo = 2147483647 + 1
-assert isinstance(largo, long) == True
+assert isinstance(largo, long)
 
 flotante = 18.9311
-assert isinstance(flotante, float) == True
+assert isinstance(flotante, float)
 
 lista = [1,1,2,3,5,8,13,21]
-assert isinstance(lista, list) == True
+assert isinstance(lista, list)
 
 tupla = ('L','M','X','J','V','S','D')
-assert isinstance(tupla, tuple) == True
+assert isinstance(tupla, tuple)
 
 diccionario = {'nombre':'Guido', 'apellido':'van Rossum'}
-assert isinstance(diccionario, dict) == True
+assert isinstance(diccionario, dict)
 
 conjunto = {'nuevo','observado','pendiente','en-progreso','hecho','cerrado'}
-assert isinstance(conjunto, set) == True
+assert isinstance(conjunto, set)
 
 objeto = object()
-assert isinstance(objeto, object) == True
+assert isinstance(objeto, object)
 
 suma = lambda a,b: a + b
 assert type(suma).__name__ == 'function'
@@ -157,25 +157,49 @@ assert otrolang == 'Ruby Lenguaje'
 # iterando la cadena
 for caracter in 'Una cadena':
     assert len(caracter) == 1
-    assert isinstance(caracter, str) == True
+    assert isinstance(caracter, str)
     assert type(caracter).__name__ == 'str'
 
 
-#exit(1)
 ########################################################################
 ## 00. CONDICIONALES                                                  ##
 ########################################################################
 
-# ==> ERNESTO <==
+edad = 29
+adulto = None
+
+# Estructura simple
+if edad >= 18:
+    adulto = True
+else: # opcional
+    adulto = False
+
+assert adulto
+
+# operador ternario
+categoria = ('Mayor' if adulto else 'Menor') + ' de edad'
+assert categoria == 'Mayor de edad'
+
+# muchas opciones
+dia = 'Lunes'
+clase = None
+
+if dia == 'Lunes' or dia == 'Jueves':
+    clase = 'Clase de 3h'
+elif dia == 'Sabado':
+    clase = 'Clase de 4h'
+elif dia == 'Martes' or dia == 'Viernes':
+    clase = 'Respuesta a Preguntas del Chat'
+else:
+    clase = 'No hay Clase'
+
+assert clase == 'Clase de 3h'
+
 
 ########################################################################
 ## 00. BUCLES                                                         ##
 ########################################################################
 
-# ==> ERNESTO <==
-
-# * while
-# * for
 
 ########################################################################
 ## 00. LISTAS                                                         ##
