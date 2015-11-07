@@ -11,7 +11,7 @@
 ## 01. HISTORIA                                                       ##
 ########################################################################
 
-==> ANTONIO <==
+# ==> ANTONIO <==
 
 # Algunos puntos relevantes sobre la historia de Python:
 #
@@ -21,69 +21,100 @@
 ## 00. SINTAXIS BÁSICA                                                ##
 ########################################################################
 
-==> ANTONIO <==
+# En Python se espera que cada sentencia ocupe una línea.
+# Sin embargo, es posible colocar dos o más sentencias en una
+# sola línea separándolas por punto y coma.
+
+# Estas dos sentencias:
+
+a = 10
+print "El valor de a: %d" % a
+
+# son equivalentes a:
+
+a = 10; print "El valor de a: %d" % a
+
+# Las sentencias típicamente generan efectos secundarios, ya sea
+# generando salida a alternado el estado de algún otro objeto.
+
+# Las expresiones simplemente se evalúan de derecha a izquierda y
+# finalmente se resuelven a algún valor literal, es decir, un valor
+# que ya no puede ser más trabajado.
+
+assert 4 == (3-1) * (1 + 1)
+
+# Ahora, algunas expresiones son sentencias, pero no todas las
+# sentencias son expresiones
+
+# La siguiente línea de código...
+# type(if 3>5: print "Hola" else print "Chau")
+# ...levanta un error de sintáxis
+
+# En cambio, esta forma de condicional si se evalúa a un valor.
+edad = 20
+assert "Mayor de edad" if edad >= 18 else "Menor de edad"
 
 ########################################################################
 ## 00. TIPOS DE DATOS BÁSICOS                                         ##
 ########################################################################
 
-==> ERNESTO <==
+# ==> ERNESTO <==
 
 ########################################################################
 ## 00. TIPOS DE DATOS BÁSICOS                                         ##
 ########################################################################
 
-==> ERNESTO <==
+# ==> ERNESTO <==
 
 ########################################################################
 ## 00. CONDICIONALES                                                  ##
 ########################################################################
 
-==> ERNESTO <==
+# ==> ERNESTO <==
 
 ########################################################################
 ## 00. BUCLES                                                         ##
 ########################################################################
 
-==> ERNESTO <==
+# ==> ERNESTO <==
 
-* while
-* for
+# * while
+# * for
 
 ########################################################################
 ## 00. LISTAS                                                         ##
 ########################################################################
 
-==> ERNESTO <==
+# ==> ERNESTO <==
 
 ########################################################################
 ## 00. DICCIONARIOS                                                   ##
 ########################################################################
 
-==> ERNESTO <==
+# ==> ERNESTO <==
 
 ########################################################################
 ## 00. CONJUNTOS                                                   ##
 ########################################################################
 
-==> ERNESTO <==
+# ==> ERNESTO <==
 
 ########################################################################
 ## 00. CLOSURES                                                       ##
 ########################################################################
 
-==> ANTONIO <==
+# ==> ANTONIO <==
 
 ########################################################################
 ## 00. LAMBDAS                                                        ##
 ########################################################################
 
-==> ERNESTO <==
+# ==> ERNESTO <==
 
-* Lambdas que sin argumentos
-* Lambdas con argumentos
-* Indicar que los lambdas solo aceptan expresiones simples
-* Función espejo como lambda
+# * Lambdas que sin argumentos
+# * Lambdas con argumentos
+# * Indicar que los lambdas solo aceptan expresiones simples
+# * Función espejo como lambda
 
 def suma(a, b):
     return a + b
@@ -96,31 +127,31 @@ assert (lambda a, b: a + b)(1,1) == 2
 ## 00. MAP, REDUCE y FILTER                                           ##
 ########################################################################
 
-==> ERNESTO <==
+# ==> ERNESTO <==
 
 ########################################################################
 ## 00. LISTAS POR COMPRENSIÓN                                         ##
 ########################################################################
 
-==> ANTONIO <==
+# ==> ANTONIO <==
 
 ########################################################################
 ## 00. CLASES Y OBJETOS                                               ##
 ########################################################################
 
-==> ANTONIO <==
+# ==> ANTONIO <==
 
 ########################################################################
 ## 00. PROTOCOLOS                                                     ##
 ########################################################################
 
-==> ANTONIO <==
+# ==> ANTONIO <==
 
 ########################################################################
 ## 00. PRINCIPALES MÉTODOS MÁGICOS                                    ##
 ########################################################################
 
-==> ERNESTO <==
+# ==> ERNESTO <==
 
 ########################################################################
 ## 00. CALLABLES                                                      ##
@@ -382,7 +413,83 @@ except StopIteration:
 ## 00. ITERABLES                                                      ##
 ########################################################################
 
-# Los iterables son objetos que devuelve un iterador
+# Los iterables son objetos que devuelven un iterador cuando se invoca
+# a su método mágico __iter__.
+
+# Los iteradores funcionan directamente con la estructura de control
+# for, así por ejemplo:
+
+class IteradorVocales(object):
+
+    VOCALES = "aeiou"
+
+    def __init__(self):
+        self.apuntador = 0
+
+    def next(self):
+        if self.apuntador < len(self.VOCALES):
+            resultado = self.VOCALES[self.apuntador]
+            self.apuntador += 1
+            return resultado
+        else:
+            raise StopIteration
+
+    def __iter__(self):
+        return self
+
+for vocal in IteradorVocales():
+    print vocal
+
+# Muchas veces el iterador que devuelve el iterable es el mismo objeto
+# iterador que implementa el método mágico __iter__ y que por lo tanto
+# se convierte también en iterable.
+
+# Otra forma de construir un iterador es pasando cualquier secuencia
+# por la función iter().
+
+VOCALES = 'aeiou'
+
+for vocal in VOCALES:
+    print vocal
+
+for vocal in iter(VOCALES):
+    print vocal
+
+i = 0
+iterador = iter(VOCALES)
+
+while True:
+    try:
+        print iterador.next()
+    except StopIteration:
+        break
+
+# Es necesario tener en cuenta que el objeto devuelto por el método
+# mágico __iter__ *NO* necesariamente tiene que ser el propio objeto
+# en el que se invoca el método mágico, sino que puede ser algo
+# distinto, como por ejemplo, un iterador creado con el método
+# __iter__  a partir de un secuencia interna.
+
+class Aula(object):
+
+    def __init__(self, docente):
+        self.docente = docente
+        self.alumnos = []
+
+    def agregar_alumno(self, nombre_alumno):
+        if nombre_alumno not in self.alumnos:
+            self.alumnos.append(nombre_alumno)
+
+    def __iter__(self):
+        return iter(self.alumnos)
+
+aula = Aula(docente='Dora Gutierrez')
+aula.agregar_alumno("Juan Perez")
+aula.agregar_alumno("Esperanza Ramos")
+aula.agregar_alumno(u"Domingo Jiménez")
+
+for alumno in aula:
+    print alumno
 
 ########################################################################
 ## 00. GENERADORES                                                    ##
