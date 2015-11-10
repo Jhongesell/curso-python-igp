@@ -1,0 +1,51 @@
+@color-principal: red;
+
+.caja(@tamano, @negrita){
+    font-size: @tamano;
+    border: 2px #999 solid;
+    font-weight: @negrita;
+    margin: 10px auto;
+}
+
+p.historia {
+    color: @color-principal;
+    span.resaltado{
+        font-weight: bold;
+        a{
+            color: orange;
+            &:visited{
+                color: red;
+            }
+        }
+    }
+}
+
+
+
+span.titulo {
+    color: @color-principal;
+}
+
+.caja-login{
+    .caja(14px, bold);
+    color: red;
+}
+
+.caja-producto-destacado{
+    .caja(12px, normal);
+    line-height: 30px;
+}
+
+
+.uno{
+    color: white;
+    #dos{
+        color: brown;
+        blockquote{
+            color: green;
+            &.resaltado{
+                font-size: 20px;
+            }
+        }
+    }
+}

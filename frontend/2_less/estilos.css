@@ -1,0 +1,41 @@
+p.historia {
+  color: red;
+}
+p.historia span.resaltado {
+  font-weight: bold;
+}
+p.historia span.resaltado a {
+  color: orange;
+}
+p.historia span.resaltado a:visited {
+  color: red;
+}
+span.titulo {
+  color: red;
+}
+.caja-login {
+  font-size: 14px;
+  border: 2px #999 solid;
+  font-weight: bold;
+  margin: 10px auto;
+  color: red;
+}
+.caja-producto-destacado {
+  font-size: 12px;
+  border: 2px #999 solid;
+  font-weight: normal;
+  margin: 10px auto;
+  line-height: 30px;
+}
+.uno {
+  color: white;
+}
+.uno #dos {
+  color: brown;
+}
+.uno #dos blockquote {
+  color: green;
+}
+.uno #dos blockquote.resaltado {
+  font-size: 20px;
+}

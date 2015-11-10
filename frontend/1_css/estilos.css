@@ -1,0 +1,63 @@
+.form-control {
+	background-color: salmon;
+}
+
+
+/* selecciona elementos que tengan la clase form-control
+y a la vez la clase especial */
+.form-control.especial{
+	color: navy;
+	font-size: +4;
+	background-color: #006400;
+}
+
+
+/* selecciona elementos que tengan la clase error */
+.error{
+	color: red !important;
+}
+
+#inp1{
+	color: white;
+}
+
+table.rayas{
+	width: 400px;
+	color: green;
+}
+
+table.rayas tr:nth-child(even){
+	background-color: #ccc;
+}
+table.rayas tr:nth-child(odd){
+	background-color: #aaa;
+}
+table.rayas tr:nth-child(3n+1){
+	background-color: red;
+}
+
+#enlaces a{
+	color: green;
+}
+
+#enlaces a:visited{
+	color: red;
+}
+
+#enlaces a:hover{
+	color: black;
+}
+
+#enlaces a:hover{
+	color: orange;
+}
+
+
+/* u */
+.error, select, #tablaPrincial{
+	font-weight: normal;
+}
+
+body > div.container > label {
+	border: 1px red dotted;
+}

@@ -1,0 +1,17 @@
+- Un documento css es un conjunto de 
+selectores css y sus respectivas reglas
+
+
+selector1 {
+	propiedad1-css: valor;
+	propiedad2-css: valor2;
+}
+
+selector2 {
+	propiedad3-css: valor;
+	propiedad4-css: valor4;
+}
+
+- Una regla CSS:
+
+	propiedad-css: valor;
