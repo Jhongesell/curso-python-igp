@@ -1,3 +1,4 @@
+# -*- coding: utf8 -*-
 """viejoauto URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,7 +16,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from ventas import views as ventas_views
+from django.shortcuts import render
+
+def homeportal(request):
+    return render(request, 'home.html', content_type='text/html')
 
 urlpatterns = [
+    url(r'^/?$', homeportal, name='home'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^reporte-ventas/?', ventas_views.listar_ventas, name='reporte_ventas'),
 ]
