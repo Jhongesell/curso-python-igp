@@ -30,18 +30,21 @@ class BaseModel(models.Model):
 
     def __unicode__(self):
         return u'Objeto %s (PK: %d)' % (
-            self.__class__.name,
+            self.__class__.__name__,
             self.pk
         )
 
     def __repr__(self):
         return '<%s object %s (PK: %d) at %s>' % (
-            self.__class__.name,
+            self.__class__.__name__,
             str(self),
             self.pk,
             hex(id(self))
         )
 
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super(BaseModel, self).save(*args, **kwargs)
 
 class UserModel(BaseModel):
 
