@@ -14,3 +14,18 @@ class ProspectoForm(forms.ModelForm):
     class Meta:
         model = Prospecto
         exclude = ('id', 'created', 'modified')
+
+
+class DemoForm(forms.ModelForm):
+
+    genero = forms.ChoiceField(
+        label=u'Género',
+        widget=forms.RadioSelect,
+        choices=Prospecto.OPCIONES_GENERO
+    )
+
+    class Meta:
+        model = Prospecto
+        exclude = ('id', 'created', 'modified')
+
+

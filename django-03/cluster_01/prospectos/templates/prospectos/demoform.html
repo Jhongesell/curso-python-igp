@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load mensaje %}
+{% load progbar %}
+
+{% block contenido %}
+    hola esto es demform.html <br />
+
+    Hola {{ username }} !
+
+    <h3>Formulario:</h3>
+
+    <div class="row">
+        <div class="col-md-6">
+            {% crispy formulario %}
+        </div>
+        <div class="col-md-6">
+            {{ advertencia | upper | mensaje }}
+            {{ msg | mensaje:"info" }}
+            {{ msg | mensaje:"warning" }}
+            {{ msg | mensaje:"danger" }}
+            {% progbar %}
+            {% progbar 25 %}
+            {% progbar 90 %}
+            {% progbar 98 %}
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from cluster_01.admin import admin_site
+from prospectos import views as views_prospectos
 
 urlpatterns = [
     url(r'^admin/', include(admin_site.urls)),
+    url(r'^prospectos/nuevo', views_prospectos.nuevo),
+    url(r'^demo-form', views_prospectos.demoform),
 ]
