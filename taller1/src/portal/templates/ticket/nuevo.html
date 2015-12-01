@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+  <h2>Nuevo Ticket</h2>
+    {{ formigp }}
+
+
+  <hr />
+  {% for field in formigp %}
+      <strong>{{ field.label_tag }}</strong>
+      <span>{{ field }}</span>
+      <br />
+      <br />
+      <br />
+  {% endfor %}
+
+
+{% endblock %}

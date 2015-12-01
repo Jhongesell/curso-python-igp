@@ -19,8 +19,10 @@ from portal import views as portal_views
 
 
 urlpatterns = [
+    url(r'^/?$', portal_views.conlayout),
     url(r'^admin/', include(admin.site.urls)),      # incluyendo otro urlpatterns
     url(r'^portal/hola/?$', portal_views.saluda),   # devolviendo un HttpResponse directamente
     url(r'^portal/holahtml/?$', portal_views.saludahtml),  # usando render
-    url(r'^portal/conlayout/$', portal_views.conlayout)
+    url(r'^portal/conlayout/$', portal_views.conlayout),
+    url(r'^ticket/nuevo/?$', portal_views.nuevoticket)
 ]
