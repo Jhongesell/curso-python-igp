@@ -1,18 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block contenido %}
-  <h2>Nuevo Ticket</h2>
 
+<h3>editar el ticket #{{id}}</h3>
     <a href="{% url 'rListarTickets' %}">Listar Tickets</a>
-
-<!--form method="post">
-    { % csrf_token %}
-    { { form }}
-    <input type="submit" value="Grabar" />
-</form-->
-
-  <hr />
-
+    <hr />
 
 <form method="post">
     {% csrf_token %}
@@ -24,12 +16,10 @@
       <br />
       <br />
   {% endfor %}
-    <input type="submit" value="Grabar" />
+    <input type="submit" value="Editar" />
 </form>
 
-<h3>Ejemplo</h3>
 
-    {{ejemplo}}
+
 
 {% endblock %}
-  

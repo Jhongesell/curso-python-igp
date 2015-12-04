@@ -24,5 +24,8 @@ urlpatterns = [
     url(r'^portal/hola/?$', portal_views.saluda),   # devolviendo un HttpResponse directamente
     url(r'^portal/holahtml/?$', portal_views.saludahtml),  # usando render
     url(r'^portal/conlayout/$', portal_views.conlayout),
-    url(r'^ticket/nuevo/?$', portal_views.nuevoticket)
+    url(r'^ticket/nuevo/?$', portal_views.nuevoticket, name='rNuevoTicket'),
+    url(r'^ticket/listar/?$', portal_views.listartickets, name='rListarTickets'),
+    url(r'^ticket/cerrar/(?P<id>[0-9]+)/?$', portal_views.cerrarticket, name='rCerrarTicket'),
+    url(r'^ticket/editar/(?P<id>[0-9]+)/?$', portal_views.editarticket, name='rEditarTicket')
 ]

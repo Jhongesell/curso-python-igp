@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+
+    <style>
+        .activo {
+            background-color: lightgreen;
+        }
+        .inactivo {
+            background-color: salmon;
+        }
+    </style>
+
+  <h2>Listado de Tickets</h2>
+
+    <a href="{% url 'rNuevoTicket' %}">Nuevo Ticket</a>
+    <hr />
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Desc</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for ticket in tickets %}
+
+                {% if ticket.estado == 'cerrado' %}
+                    <tr class="inactivo">
+                {% else %}
+                    <tr class="activo">
+                {% endif %}
+
+                    <td>{{ticket.titulo}}</td>
+                    <td>{{ticket.descripcion}}</td>
+                    <td>{{ticket.estado}}</td>
+                    <td>
+                            <a href="{% url 'rEditarTicket' ticket.id %}">Editar</a>
+                        {% if not ticket.estado == 'cerrado' %}
+                            <a onclick="return confirm('Estas seguro?');" href="{% url 'rCerrarTicket' ticket.id %}">Cerrar</a>
+                        {% endif %}
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+  

@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+
+    <form method="POST">
+        {% csrf_token %}
+        Estas seguro que deseas cerrar el ticket #{{id}}
+        <input type="submit" value="SI! Cerrar (id: {{id}}) ?">
+    </form>
+
+
+{% endblock %}

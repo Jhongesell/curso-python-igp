@@ -11,7 +11,6 @@ TICKET_ESTADOS = (
     ('cerrado', 'Cerrado'),
 )
 
-
 class Autor(models.Model):
     email = models.EmailField()
 
