@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+
+Contador: {{contador}} <br />
+
+<a href="{% url 'rEjemploSesiones' %}">Home</a> <br />
+<a href="{% url 'rEjemploSesiones' %}?incrementar=1">Incrementar</a> <br />
+<a href="{% url 'rEjemploSesiones' %}?reset=1">Reset</a> <br />
+
+{% endblock %}
+
+
+
+
+
+

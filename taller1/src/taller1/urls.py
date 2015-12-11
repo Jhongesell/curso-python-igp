@@ -27,5 +27,11 @@ urlpatterns = [
     url(r'^ticket/nuevo/?$', portal_views.nuevoticket, name='rNuevoTicket'),
     url(r'^ticket/listar/?$', portal_views.listartickets, name='rListarTickets'),
     url(r'^ticket/cerrar/(?P<id>[0-9]+)/?$', portal_views.cerrarticket, name='rCerrarTicket'),
-    url(r'^ticket/editar/(?P<id>[0-9]+)/?$', portal_views.editarticket, name='rEditarTicket')
+    url(r'^ticket/editar/(?P<id>[0-9]+)/?$', portal_views.editarticket, name='rEditarTicket'),
+
+    # /venta/nueva
+    url(r'^venta/nueva/?$', portal_views.nuevaventa, name='rNuevaVenta'),
+    url(r'^ejemplo-sesiones/?$', portal_views.ejemplosesiones, name='rEjemploSesiones'),
+
+
 ]

@@ -33,3 +33,26 @@ class Ticket(models.Model):
         return '[%s] %s (%s)' % (self.estado, self.titulo, self.titulo)
 
 
+
+class Ejemplo(models.Model):
+    campo = models.TextField(max_length=2000)
+
+
+class Producto(models.Model):
+    nombre = models.CharField(max_length=50)
+    precio = models.FloatField()
+    cantidad = models.SmallIntegerField()
+    descripcion = models.TextField(max_length=3000)
+    activo = models.BooleanField()
+    def __unicode__(self):
+        return self.nombre
+    class Meta:
+        verbose_name = u'Producto'
+        verbose_name_plural = u'Productos'
+
+
+
+
+
+
+
